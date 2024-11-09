@@ -1,0 +1,48 @@
+[tool.poetry]
+name = "file-store"
+version = "0.1.0"
+description = ""
+authors = ["Patryk Dwórznik <patryk@dworznik.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+cloud-sql-python-connector = "^1.10.0"
+psycopg2 = "^2.9.9"
+pg8000 = "^1.31.2"
+google-api-python-client = "^2.134.0"
+functions-framework = "^3.8.0"
+sqlalchemy = "^2.0.31"
+markupsafe = "^2.1.5"
+google-cloud-logging = "^3.10.0"
+google-cloud-datastore = "^2.19.0"
+
+[tool.poetry.group.dev.dependencies]
+alembic = "^1.13.2"
+toml = "^0.10.2"
+black = "^24.4.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+list-events = "file_store.cli.list:run"
+drive = "file_store.cli.drive:main"
+
+[tool.black]
+line-length = 88
+exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
